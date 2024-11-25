@@ -5,7 +5,7 @@ import axios from 'axios';
 const API_URL = 'https://api.brevo.com/v3/smtp/email';
 
 // Your Brevo API Key (consider storing this securely, such as in an environment variable)
-const API_KEY = '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';
+const API_KEY = '';
 
 export async function sendEmail({ to, subject, htmlContent }) {
   try {
