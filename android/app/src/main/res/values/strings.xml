@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Murphy Loss Assessors</string>
+    <string name="title_activity_main">Murphy Loss Assessors</string>
+    <string name="package_name">ie.murphyla.app</string>
+    <string name="custom_url_scheme">ie.murphyla.app</string>
+</resources>
