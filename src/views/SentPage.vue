@@ -63,6 +63,6 @@ height: 100%;
 }
 
 .main_text_content{
-  max-width: 450px;
+  max-width: 350px;
 }
 </style>

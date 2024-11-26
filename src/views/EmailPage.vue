@@ -13,25 +13,21 @@
   <p>Thanks so much!</p>
 </div>
 <div v-else>
-  <p>Send us your referral and Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo enim illo exercitationem accusantium facilis qui alias odit, harum necessitatibus laudantium quo, quam est dolorem assumenda rerum perspiciatis fuga adipisci iusto.</p>
+  <p>Send us your referral and Lorem ipsum dolor sit amet consectetur adipisicing elit. s laudantium quo, quam est dolorem assumenda rerum perspiciatis fuga adipisci iusto.</p>
 </div>
 
-            <ion-input v-model="customer_namo" placeholder="Add Customer name"></ion-input><br>
+<div v-if="user_namo">
+  <ion-input v-model="customer_namo" placeholder="Add Customer name"></ion-input><br>
             <ion-input v-model="customer_mailo" placeholder="Customer email"></ion-input><br>
             <ion-textarea v-model="customer_phone" placeholder="Customer Phone Number"></ion-textarea>
             <ion-textarea v-model="customer_sitch" placeholder="Customer Issue or details"></ion-textarea>
             <br>
             <br>
-            <ion-item v-if="user_namo">
-              <ion-icon :icon="personCircleOutline" size="large" color="primary"></ion-icon>&nbsp;{{ user_namo }}
-            </ion-item>
-            <ion-item v-else><ion-icon :icon="personCircleOutline" size="large" color="primary"></ion-icon>&nbsp;No name stored</ion-item>
-            <br>
-            <ion-item v-if="user_mailo"><ion-icon :icon="mailOutline" size="large" color="primary"></ion-icon>&nbsp;{{ user_mailo }}</ion-item>
-            <ion-item v-else><ion-icon :icon="mailOutline" size="large" color="primary"></ion-icon>&nbsp;No email stored</ion-item>
-            <br>
-            <br>
             <ion-button color="success" @click="sendTestEmail">Send Referral</ion-button>
+</div>
+<div v-else>
+  Please make sure your name and email are added first - go to the settings page.
+</div>
           </ion-col>
         </ion-row>
 
@@ -109,7 +105,7 @@ height: 100%;
 }
 
 .main_text_content{
-  max-width: 450px;
+  max-width: 350px;
   width: 100%;
 }
 </style>

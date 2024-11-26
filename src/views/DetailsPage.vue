@@ -9,17 +9,8 @@
             <ion-toolbar>
         <ion-title>Your Details</ion-title>
       </ion-toolbar>
-      <p>We want to know who sends us referrals and Lorem ipsum dolor sit amet consectetur adipisicing elit. Nemo enim illo exercitationem accusantium facilis qui alias odit, harum necessitatibus laudantium quo, quam est dolorem assumenda rerum perspiciatis fuga adipisci iusto.</p>
-
-            <ion-item v-if="savedNamo">
-              <ion-icon :icon="personCircleOutline" size="large" color="primary"></ion-icon>&nbsp;{{ savedNamo }}
-            </ion-item>
-            <ion-item v-else><ion-icon :icon="personCircleOutline" size="large" color="primary"></ion-icon>&nbsp;No name stored</ion-item>
-            <br>
-            <ion-item v-if="savedEmailo"><ion-icon :icon="mailOutline" size="large" color="primary"></ion-icon>&nbsp;{{ savedEmailo }}</ion-item>
-            <ion-item v-else><ion-icon :icon="mailOutline" size="large" color="primary"></ion-icon>&nbsp;No email stored</ion-item>
-            <br>
-            <div v-if="savedNamo"></div>
+<br>
+      <div v-if="savedNamo"></div>
             <div v-else>
               <ion-input v-model="namo" placeholder="Type your name"></ion-input><br>
             </div>
@@ -28,14 +19,23 @@
             <div v-else>
               <ion-input v-model="mailo" placeholder="Type your email"></ion-input><br>
             </div>
+
+            <ion-item v-if="savedNamo">
+              <ion-icon :icon="personCircleOutline" size="large" color="primary"></ion-icon>&nbsp;{{ savedNamo }}
+            </ion-item>
             <br>
-            
+            <ion-item v-if="savedEmailo"><ion-icon :icon="mailOutline" size="large" color="primary"></ion-icon>&nbsp;{{ savedEmailo }}
+            </ion-item>
+            <br>
+
             <div v-if="savedEmailo">
-              <ion-button color="warning" @click="removeNameAndEmail">Remove my details</ion-button>
+              <ion-button color="warning" @click="removeNameAndEmail">Clear my details</ion-button>
             </div>
             <div v-else>
               <ion-button color="tertiary" @click="saveNameAndEmail">Save my details</ion-button>
             </div>
+      <p>We want to know who sends us referrals and Lorem ipsum dolor sit ametrerum perspiciatis fuga adipisci iusto.</p>           
+
           </ion-col>
         </ion-row>
       </ion-grid>
@@ -127,7 +127,7 @@ height: 100%;
 }
 
 .main_text_content{
-  max-width: 450px;
+  max-width: 350px;
 }
 
 .icon-large{
