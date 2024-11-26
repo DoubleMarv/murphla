@@ -23,14 +23,14 @@ import { IonApp, IonRouterOutlet } from '@ionic/vue';
 <style>
 /* CSS */
 
+.main_heado .title-default{
+  background: #007591;
+}
 
 
 .headerlogo{
-max-height: 2.5rem;
-background: linear-gradient(to bottom, rgba(255,255,255,0.15) 0%, rgba(0,0,0,0.15) 100%), radial-gradient(at top center, rgba(255,255,255,0.40) 0%, rgba(0,0,0,0.40) 120%) #989898;
-background-blend-mode: multiply,multiply;
-padding: 0.15rem .5rem;
-border-radius: 3px;
+  max-height: 3.5rem;
+  padding: 0.5rem;
 }
 
 </style>

@@ -3,8 +3,11 @@ import axios from 'axios';
 
 // Brevo API endpoint for sending transactional emails
 const API_URL = 'https://api.brevo.com/v3/smtp/email';
+
 // Your Brevo API Key (consider storing this securely, such as in an environment variable)
-//const API_KEY = '';
+// const API_KEY = process.env.VUE_APP_BREVO_KEY;
+const BREVO_KEY = import.meta.env.VITE_BREVO_KEY;
+
 
 export async function sendEmail({ to, subject, htmlContent }) {
   try {
@@ -19,7 +22,7 @@ export async function sendEmail({ to, subject, htmlContent }) {
       {
         headers: {
           'Content-Type': 'application/json',
-          'api-key': API_KEY,
+          'api-key': BREVO_KEY,
         },
       }
     );
