@@ -9,7 +9,7 @@
   <ion-toolbar>
         <ion-title>About Murphy Loss Assessors</ion-title>
       </ion-toolbar><br>
-  <p>Murphy Loss Assessors are specialists in business interruption claims for Covid 19. Free insurance policy review. We will advise if you should submit a Covid 19 business interruption claim.</p>
+  <p><strong>Murphy Loss Assessors</strong> are specialists in business interruption claims for Covid 19. Free insurance policy review. We will advise if you should submit a Covid 19 business interruption claim.</p>
 <p>We negotiate the best settlement of any property, contents or business interruption claim</p>
 </ion-col>
 
