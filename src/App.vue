@@ -10,7 +10,6 @@
     <!-- Main Content Area -->
     <ion-router-outlet id="main-content"></ion-router-outlet>
 
-        <MurphyMenu />
     <MurphyFab/>
   </ion-app>
 </template>

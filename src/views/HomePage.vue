@@ -14,6 +14,13 @@
 </ion-col>
 
   </ion-row>
+
+  <ion-row>
+  <ion-col>
+      <ion-button @click="gotoEmail">Send Referral</ion-button>
+</ion-col>
+</ion-row>
+
 </ion-grid>
 
     </ion-content>
@@ -22,9 +29,13 @@
 
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, IonButton } from '@ionic/vue';
-// import { ref, onMounted } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter();
 
+function gotoEmail() {
+  router.push('/tabs/email');
+}
 // const name = ref('');
 // const savedName = ref('');
 // const savedEmail = ref('');

@@ -4,12 +4,12 @@
       <ion-grid class="vertical-align-grid">
         <ion-row>
             <ion-col class="main_text_content">
-            <p>Thanks {{ user_namo }}, we have passed on that info!</p>
+            <p>Thanks {{ user_namo }}, we have passed that info on!</p>
           </ion-col>
         </ion-row>
 <ion-row>
   <ion-col>
-      <ion-button @click="gotoHome">Send Test Email</ion-button>
+      <ion-button @click="gotoHome">Home</ion-button>
 </ion-col>
 </ion-row>
 

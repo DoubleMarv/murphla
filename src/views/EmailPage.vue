@@ -13,7 +13,7 @@
   <p>Thanks so much!</p>
 </div>
 <div v-else>
-  <p>Send us your referral and Lorem ipsum dolor sit amet consectetur adipisicing elit. s laudantium quo, quam est dolorem assumenda rerum perspiciatis fuga adipisci iusto.</p>
+  <p>Send us your referral and Lorem ipsum dolor sit amet consectetur adipisicing elit. s laudantium quo</p>
 </div>
 
 <div v-if="user_namo">
@@ -43,6 +43,7 @@ import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonTexta
 import { personCircleOutline } from 'ionicons/icons';
 import { mailOutline } from 'ionicons/icons';
 import { sendEmail } from '@/emailService';
+import { useRouter } from 'vue-router';
 import { ref,onMounted } from 'vue';
 
 let customer_namo = ref('');
@@ -54,8 +55,9 @@ let thanksdeclaration = false;
 
 let user_namo = ref('');
 let user_mailo = ref('');
-// Define a reactive variable
-const name = ref(''); // Initial empty value
+const router = useRouter();
+
+const name = ref(''); 
 async function sendTestEmail() {
   try {
     const emailData = {
@@ -64,7 +66,7 @@ async function sendTestEmail() {
       htmlContent: '<p><strong>Contact Name:</strong> '+customer_namo.value+'</p><p><strong>Contact Email:</strong> '+customer_mailo.value+'</p><p><strong>Contact phone:</strong> '+customer_phone.value+'</p><p><strong>Contact issue:</strong> '+customer_sitch.value+'</p>',
     };
     const response = await sendEmail(emailData);
-    console.log(thanksdeclaration);
+    router.push('/tabs/email_sent');
   } catch (error) {
     console.error('Failed to send email:', error);
   }
