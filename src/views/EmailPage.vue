@@ -9,13 +9,7 @@
             <ion-toolbar>
         <ion-title>Send a Referral</ion-title>
       </ion-toolbar><br>
-<div v-if="errorlogger">
-  <p>{{loggertext}}</p>
-</div>
-<div v-else>
   <p>Send us your referral and Lorem ipsum dolor sit amet consectetur adipisicing elit. s laudantium quo</p>
-</div>
-
 <div v-if="user_namo">
   <ion-input v-model="customer_namo" placeholder="Add Customer name"></ion-input><br>
             <ion-input v-model="customer_mailo" placeholder="Customer email"></ion-input><br>
@@ -50,14 +44,13 @@ let customer_namo = ref('');
 let customer_mailo = ref('');
 let customer_sitch = ref('');
 let customer_phone = ref('');
-let errorlogger = false;
-let loggertext = ref('');
+
 
 let user_namo = ref('');
 let user_mailo = ref('');
 const router = useRouter();
-
 const name = ref(''); 
+
 async function sendTestEmail() {
   try {
     const emailData = {
@@ -68,15 +61,12 @@ async function sendTestEmail() {
     const response = await sendEmail(emailData);
     router.push('/tabs/email_sent');
   } catch (error) {
-    errorlogger = true;
-   alert(error.message);
-    loggertext = error;
+   alert(error);
   }
 }
 
 
 onMounted(() => {
-  console.log(errorlogger);
   user_namo.value = localStorage.getItem('userName') || '';
   user_mailo.value = localStorage.getItem('userEmail') || '';
 });
