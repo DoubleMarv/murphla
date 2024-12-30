@@ -11,7 +11,6 @@
           <ion-icon aria-hidden="true" :icon="ellipse" />
           <ion-label>Settings</ion-label>
         </ion-tab-button>
-
       </ion-tab-bar>
     </ion-tabs>
   </ion-page>

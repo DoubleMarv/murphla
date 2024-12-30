@@ -7,17 +7,28 @@
   <ion-row>
 <ion-col class="main_text_content"> 
   <ion-toolbar>
-        <ion-title>About Murphy Loss Assessors</ion-title>
-      </ion-toolbar><br>
-  <p><strong>Murphy Loss Assessors</strong> are specialists in business interruption claims for Covid 19. Free insurance policy review. We will advise if you should submit a Covid 19 business interruption claim.</p>
-<p>We negotiate the best settlement of any property, contents or business interruption claim</p>
+              <h1 class="pagetitlehach">About</h1>
+            </ion-toolbar><br>
+  <p>Murphy Loss Assessors Ltd are <strong>Claims Consultants</strong>.
+We help Residential and commercial customers with all insurance claims including:</p>
+<ul>
+  <li>Fire Damage</li>
+  <li>Water Damage</li>
+    <li>Storm Damage</li>
+      <li>Theft</li>
+        <li>Impact Damage</li>
+          <li>Oil Leaks</li>
+            <li>Business Interruption</li>
+</ul>
+<p class="hotcallout">We negotiate the <span>best settlements</span></p>
+<p class="inlinelink"><ion-icon :icon="navigateOutline" size="large" color="primary"></ion-icon>&nbsp;<a href="https://murphyla.ie/">https://murphyla.ie/</a></p>
 </ion-col>
 
   </ion-row>
 
   <ion-row>
   <ion-col>
-      <ion-button @click="gotoEmail">Send Referral</ion-button>
+      <ion-button @click="gotoEmail" color="murphla">Send Referral</ion-button>
 </ion-col>
 </ion-row>
 
@@ -29,6 +40,7 @@
 
 <script setup lang="ts">
 import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonLabel, IonInput, IonButton } from '@ionic/vue';
+import { personCircleOutline, mailOutline, navigateOutline, callOutline, businessOutline } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
@@ -36,15 +48,6 @@ const router = useRouter();
 function gotoEmail() {
   router.push('/tabs/email');
 }
-// const name = ref('');
-// const savedName = ref('');
-// const savedEmail = ref('');
-
-
-// onMounted(() => {
-//   savedName.value = localStorage.getItem('userName') || ''; 
-//   savedEmail.value = localStorage.getItem('userEmail') || ''; 
-// });
 </script>
 
 
@@ -78,8 +81,26 @@ height: 100%;
   justify-content: center; 
 }
 
-.main_text_content{
-  max-width: 350px;
+p.hotcallout span{
+color: #007591;
+font-weight: 600;
 }
 
+.inlinelink{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .icon-large{
+    background: #fff;
+    border-radius: 3px;
+  }
+  a{
+    color: #007591;
+    text-decoration: none;
+  }
+}
+
+.sendrefbutt{
+  color: #fff;
+}
 </style>

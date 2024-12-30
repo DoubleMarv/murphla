@@ -2,75 +2,141 @@
   <ion-page>
     <ion-content>
       <ion-grid class="vertical-align-grid">
-
-
         <ion-row>
           <ion-col class="main_text_content">
             <ion-toolbar>
-        <ion-title>Send a Referral</ion-title>
-      </ion-toolbar><br>
-  <p>Send us your referral and Lorem ipsum dolor sit amet consectetur adipisicing elit. s laudantium quo</p>
-<div v-if="user_namo">
-  <ion-input v-model="customer_namo" placeholder="Add Customer name"></ion-input><br>
-            <ion-input v-model="customer_mailo" placeholder="Customer email"></ion-input><br>
-            <ion-textarea v-model="customer_phone" placeholder="Customer Phone Number"></ion-textarea>
-            <ion-textarea v-model="customer_sitch" placeholder="Customer Issue or details"></ion-textarea>
+              <h1 class="pagetitlehach">Send a Referral</h1>
+            </ion-toolbar>
             <br>
-            <br>
-            <ion-button color="success" @click="sendTestEmail">Send Referral</ion-button>
-</div>
-<div v-else>
-  Please make sure your name and email are added first - go to the settings page.
-</div>
+            <p>Fill out the details below and send!</p>
+
+            <div v-if="user_namo">
+              <ion-input
+                v-model="customer_namo"
+                placeholder="Add Customer Name"
+              ></ion-input>
+              <div v-if="showErrors && !customer_namo.trim()" class="error-message">
+                Customer name is required.
+              </div>
+
+              <ion-input
+                v-model="customer_mailo"
+                placeholder="Customer Email"
+              ></ion-input>
+              <div v-if="showErrors && !isEmailValid(customer_mailo)" class="error-message">
+                Please enter a valid email address.
+              </div>
+
+              <ion-input
+                v-model="customer_phone"
+                placeholder="Customer Phone Number"
+              ></ion-input>
+              <div v-if="showErrors && !isPhoneValid(customer_phone)" class="error-message">
+                Phone number must be at least 7 digits.
+              </div>
+
+              <ion-textarea
+                v-model="customer_sitch"
+                placeholder="Customer Issue or Details"
+              ></ion-textarea>
+              <!-- <div v-if="showErrors && !customer_sitch.trim()" class="error-message">
+                Issue details are required.
+              </div> -->
+
+              <br>
+              <br>
+              <ion-button
+                color="success"
+                :disabled="!isFormValid()"
+                @click="handleSendEmail"
+              >
+                Send Referral
+              </ion-button>
+            </div>
+
+            <div v-else>
+              Please make sure your name and email are added first - go to the
+              settings page.
+            </div>
           </ion-col>
         </ion-row>
-
-
-
       </ion-grid>
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
-import { IonPage, IonHeader, IonToolbar, IonTitle, IonContent, IonItem, IonTextarea, IonInput, IonGrid } from '@ionic/vue';
-import { personCircleOutline } from 'ionicons/icons';
-import { mailOutline } from 'ionicons/icons';
+import { IonPage, IonContent, IonInput, IonTextarea, IonGrid } from "@ionic/vue";
 import { sendEmail } from '@/emailService';
-import { useRouter } from 'vue-router';
-import { ref,onMounted } from 'vue';
+import { useRouter } from "vue-router";
+import { ref, onMounted } from "vue";
 
-let customer_namo = ref('');
-let customer_mailo = ref('');
-let customer_sitch = ref('');
-let customer_phone = ref('');
+let customer_namo = ref("");
+let customer_mailo = ref("");
+let customer_phone = ref("");
+let customer_sitch = ref("");
 
-
-let user_namo = ref('');
-let user_mailo = ref('');
+let user_namo = ref("");
+let user_mailo = ref("");
+let user_phono= ref("");
+let user_companyo = ref("");
 const router = useRouter();
-const name = ref(''); 
+let showErrors = ref(true); 
 
-async function sendTestEmail() {
-  try {
-    const emailData = {
-      to: 'info@doublemarvellous.com', // Recipient's email
-      subject: 'Murphy Loss Assessors - New Contact - '+customer_namo.value+'',
-      htmlContent: '<p><strong>Contact Name:</strong> '+customer_namo.value+'</p><p><strong>Contact Email:</strong> '+customer_mailo.value+'</p><p><strong>Contact phone:</strong> '+customer_phone.value+'</p><p><strong>Contact issue:</strong> '+customer_sitch.value+'</p>',
-    };
-    const response = await sendEmail(emailData);
-    router.push('/tabs/email_sent');
-  } catch (error) {
-   alert(error);
+// Validation functions
+const isEmailValid = (email: string): boolean => {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+};
+
+const isPhoneValid = (phone: string): boolean => {
+  return phone.trim().length >= 7;
+};
+
+const isFormValid = (): boolean => {
+  return (
+    customer_namo.value.trim() &&
+    isEmailValid(customer_mailo.value) &&
+    isPhoneValid(customer_phone.value) &&
+    customer_sitch.value.trim()
+  );
+};
+
+async function handleSendEmail() {
+  if (isFormValid()) {
+    try {
+      const emailData = {
+        to: "info@doublemarvellous.com",
+        subject: "Murphy Loss Assessors - New Contact - " + customer_namo.value,
+        htmlContent: `
+          <p><strong>Contact Name:</strong> ${customer_namo.value}</p>
+          <p><strong>Contact Email:</strong> ${customer_mailo.value}</p>
+          <p><strong>Contact Phone:</strong> ${customer_phone.value}</p>
+          <p><strong>Contact Issue:</strong> ${customer_sitch.value}</p>
+          <hr>
+          <p><strong>Referrer:</strong> ${user_namo.value}</p>
+          <p><strong>Referrer's email:</strong> ${user_mailo.value}</p>
+          <p><strong>Referrer's phone:</strong> ${user_phono.value}</p>
+          <p><strong>Referrer's company:</strong> ${user_companyo.value}</p>
+        `,
+      };
+      // Assuming `sendEmail` is an existing service
+      await sendEmail(emailData);
+      router.push("/tabs/email_sent");
+    } catch (error) {
+      alert(error);
+    }
+  } else {
+    showErrors.value = true; // Show errors if the form is invalid
   }
 }
 
-
 onMounted(() => {
-  user_namo.value = localStorage.getItem('userName') || '';
-  user_mailo.value = localStorage.getItem('userEmail') || '';
+  user_namo.value = localStorage.getItem("userName") || "No name given";
+  user_mailo.value = localStorage.getItem("userEmail") || "No email given";
+  user_phono.value = localStorage.getItem("userPhone") || "No phone Number given";
+  user_companyo.value = localStorage.getItem("userCompany") || "No company given";
 });
-
 </script>
 
 <style>
@@ -82,24 +148,30 @@ onMounted(() => {
   justify-content: center;
 }
 
-.vertical-align-grid{
-height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
-
-
-.innerrow{
-     display: flex;
+.vertical-align-grid {
+  height: 100%;
+  display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center; 
+  justify-content: center;
 }
 
-.main_text_content{
-  max-width: 350px;
-  width: 100%;
+.innerrow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+
+.error-message {
+  color: rgb(149, 9, 230);
+  font-size: 12px;
+  margin-top: 4px;
+  font-style: italic;
+}
+
+textarea{
+  border-top: 1px solid #777;
 }
 </style>

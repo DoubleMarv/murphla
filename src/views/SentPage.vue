@@ -62,7 +62,4 @@ height: 100%;
   justify-content: center; 
 }
 
-.main_text_content{
-  max-width: 350px;
-}
 </style>
