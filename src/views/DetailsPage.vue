@@ -94,8 +94,9 @@ function saveEmail() {
     console.log('Saving email:', mailo.value); // Debug log
   localStorage.setItem('userEmail', mailo.value);
   savedEmailo.value = mailo.value;
-  } else{
-    showerror = true;
+  showerror.value = false; // Reset error flag
+  } else {
+    showerror.value = true; // Set error flag
   }
 }
 
@@ -125,10 +126,10 @@ function saveAllDetails() {
     saveEmail();
     savePhone();
     saveCompany();
-    showerror = false;
+    showerror.value = false; // Reset error flag
   } else {
     alert('Please fill out all fields correctly');
-    showerror = true;
+    showerror.value = true; // Set error flag
   }
 }
 

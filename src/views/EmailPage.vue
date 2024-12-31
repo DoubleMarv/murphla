@@ -95,10 +95,10 @@ const isPhoneValid = (phone: string): boolean => {
 
 const isFormValid = (): boolean => {
   return (
-    customer_namo.value.trim() &&
+    !!customer_namo.value.trim() &&
     isEmailValid(customer_mailo.value) &&
     isPhoneValid(customer_phone.value) &&
-    customer_sitch.value.trim()
+    !!customer_sitch.value.trim()
   );
 };
 
