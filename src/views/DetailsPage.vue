@@ -9,7 +9,8 @@
             <ion-toolbar>
               <h1 class="pagetitlehach">Your Details</h1>
             </ion-toolbar>
-<br>
+            <p>This allows us know who sends us referrals. </p>  
+            <br>
             <div v-if="savedNamo"></div>
             <div v-else>
             <ion-input v-model="namo" placeholder="Type your name"></ion-input><br>
@@ -54,8 +55,7 @@
             </div>
             <div v-else>
               <ion-button color="tertiary" @click="saveAllDetails" :disabled="!namo || !mailo || !phono">Save my details</ion-button> <ion-button color="warning" @click="removeAllDetails" class="ion-color ion-color-warning ios button button-solid ion-activatable ion-focusable clearbutt">Clear</ion-button>
-            </div>
-      <p>This allows us know who sends us referrals. </p>           
+            </div>         
           </ion-col>
         </ion-row>
       </ion-grid>

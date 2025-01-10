@@ -1,6 +1,6 @@
 <template>
   <ion-fab slot="fixed" vertical="bottom" horizontal="end">
-    <ion-fab-button @click="gotoEmailPage">
+    <ion-fab-button @click="gotoEmailPage" color="murphla">
       <ion-icon :icon="add"></ion-icon>
     </ion-fab-button>
   </ion-fab>

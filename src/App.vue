@@ -3,7 +3,9 @@
     <!-- Main Side Menu -->
   <ion-header class="main_heado">
     <ion-toolbar>
+    <a href="https://murphyla.ie/">
       <ion-title><img class="headerlogo" src="@/assets/images/logo.png" alt="Logo" /></ion-title>
+      </a>
     </ion-toolbar>
   </ion-header>
 

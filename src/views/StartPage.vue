@@ -5,8 +5,8 @@
   <ion-row class="innerrow">
 <ion-col class="main_text_content has_centered_text">
     <img class="middlelogo" src="@/assets/images/logo.png" alt="Logo" />
-    <p>Welcome back {{ savedNamo }}.</p>
-    <p> Not you? Go to <a href="/tabs/details">settings</a> to add your name and email.</p>
+    <p class="bigpee">Welcome back {{ savedNamo }}</p><hr class="whitehr">
+    <p class="smallpee"> Not you?<br> Go to <a href="/tabs/details" class="murphyblue">settings</a> to add your name and email.</p>
 </ion-col>
 
   </ion-row>
@@ -41,9 +41,7 @@ background: #007591;
 padding: 0.5rem 1rem;
 border-radius: 3px;
 }
-.ion-page .toolbar-md{
-  transform: translateY(70px);
-}
+
 
 .full-height {
   height: 100vh;
@@ -52,6 +50,10 @@ border-radius: 3px;
   justify-content: center;
 }
 
+
+.whitehr{
+  background-color: #fff;
+}
 .vertical-align-grid{
 height: 100%;
     display: flex;
@@ -60,6 +62,16 @@ height: 100%;
     justify-content: center;
 }
 
+.bigpee{
+  font-size: 1.1rem;
+}
+.smallpee{
+  font-size: .9rem;
+}
+.murphyblue{
+  color: #007591;
+  text-decoration: none;
+}
 
 .innerrow{
      display: flex;

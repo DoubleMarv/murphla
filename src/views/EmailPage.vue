@@ -50,7 +50,7 @@
                 :disabled="!isFormValid()"
                 @click="handleSendEmail"
               >
-                Send Referral
+                Send
               </ion-button>
             </div>
 
@@ -165,7 +165,7 @@ onMounted(() => {
 
 
 .error-message {
-  color: rgb(149, 9, 230);
+  color: #007591;
   font-size: 12px;
   margin-top: 4px;
   font-style: italic;

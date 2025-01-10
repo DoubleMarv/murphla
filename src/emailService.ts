@@ -19,7 +19,7 @@ export async function sendEmail({ to, subject, htmlContent }: EmailParams): Prom
     const response = await axios.post(
       API_URL,
       {
-        sender: { email: 'emailsender@barryenglish.ie', name: 'Murphy Loss Assessors' },
+        sender: { email: 'paul@murphyla.ie', name: 'Murphy Loss Assessors' },
         to: [{ email: to, name: 'Recipient Name' }],
         subject,
         htmlContent,

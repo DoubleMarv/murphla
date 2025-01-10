@@ -9,7 +9,7 @@
         </ion-row>
 <ion-row>
   <ion-col>
-      <ion-button @click="gotoHome">Home</ion-button>
+      <ion-button @click="gotoHome" color="murphla">Home</ion-button>
 </ion-col>
 </ion-row>
 

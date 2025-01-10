@@ -1,3 +1,11 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('../assets/fonts/Roboto-Regular.ttf') format('truetype');
+    font-weight: 400;
+    font-style: normal;
+  }
+
+
 .has_centered_text{
     text-align: center;
 }
@@ -8,6 +16,7 @@ p{
 }
 
 :root {
+    --ion-font-family: 'Roboto', sans-serif;
     --ion-color-murphla: #007591;
     --ion-color-murphla-rgb: 0, 117, 145;
     --ion-color-murphla-contrast: #fff;
@@ -37,7 +46,14 @@ p{
   }
 
 
-  .main_text_content{
+  .fab-vertical-bottom {
+    bottom: 30px;
+}
+
+
+.main_text_content{
     width: 100%;
+    min-width: 300px;
     max-width: 350px;
+    min-height: 10rem;
   }
