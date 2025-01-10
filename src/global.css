@@ -44,7 +44,9 @@ p{
     margin: 0.5rem;
     font-weight: 500;
   }
-
+.in-toolbar{
+  border-bottom: 1px solid #e5e5e5;
+}
 
   .fab-vertical-bottom {
     bottom: 30px;
@@ -56,4 +58,8 @@ p{
     min-width: 300px;
     max-width: 350px;
     min-height: 10rem;
+  }
+
+  .max_width_threefiddy{
+    max-width: 350px;
   }

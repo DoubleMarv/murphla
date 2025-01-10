@@ -1,17 +1,15 @@
 <template>
-
 <ion-page>
 <ion-content>
 <ion-grid class="vertical-align-grid">
-
 <ion-row>
 <ion-col class="main_text_content"> 
-<ion-toolbar>
+<ion-toolbar class="max_width_threefiddy">
 <h1 class="pagetitlehach">About</h1>
 </ion-toolbar>
-<p>Murphy Loss Assessors Ltd are <strong>Claims Consultants</strong>.
+<p class="max_width_threefiddy">Murphy Loss Assessors Ltd are <strong>Claims Consultants</strong>.
 We help Residential and commercial customers with all insurance claims including:</p>
-<ul>
+<ul class="max_width_threefiddy">
 <li>Fire Damage</li>
 <li>Water Damage</li>
 <li>Storm Damage</li>
@@ -23,16 +21,6 @@ We help Residential and commercial customers with all insurance claims including
 <p class="hotcallout">We negotiate the <span>best settlements</span></p>
 </ion-col>
 </ion-row>
-<!-- <ion-row class="bordo">
-<ion-col>
-<p class="rightalign">Click the plus to send us a referral</p>
-</ion-col>
-<ion-col class="flexage">
-<ion-fab-button class="smallfab" color="murphla">
-<ion-icon :icon="add" ></ion-icon>
-</ion-fab-button>
-</ion-col>
-</ion-row> -->
 </ion-grid>
 
 </ion-content>
@@ -41,8 +29,6 @@ We help Residential and commercial customers with all insurance claims including
 
 <script setup lang="ts">
 import { IonPage, IonToolbar, IonContent,IonFab, IonFabButton, IonIcon } from '@ionic/vue';
-import { add } from 'ionicons/icons';
-import { personCircleOutline, mailOutline, navigateOutline, callOutline, businessOutline } from 'ionicons/icons';
 import { useRouter } from 'vue-router';
 
 const router = useRouter();
